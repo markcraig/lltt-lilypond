@@ -1,5 +1,12 @@
 \version "2.18.2"
 
+meditationHarmonics = \relative c {
+  <e\harmonic a\harmonic d\harmonic g\harmonic b\harmonic e\harmonic>2
+  <b\harmonic e\harmonic a\harmonic d\harmonic fis\harmonic b\harmonic>4
+  <a\harmonic d\harmonic g\harmonic c\harmonic e\harmonic a\harmonic>4
+  <e'\harmonic a\harmonic d\harmonic g\harmonic b\harmonic e\harmonic>1
+}
+
 meditationCapo = \relative c {
   e,8 b' fis' g b e4.
   b8 g fis g b g fis g
@@ -204,10 +211,12 @@ forestDreamCoda = \relative c {
     \new Staff {
       \clef "treble_8"
       \set Staff.instrumentName = #"Guitar 1"
+      \repeat volta 2 { \meditationHarmonics }
       \repeat volta 2 { \meditation }
     }
     \new TabStaff {
       \set TabStaff.restrainOpenStrings = ##t
+      \repeat volta 2 { \meditationHarmonics }
       \repeat volta 2 { \meditation }
     }
   >>
