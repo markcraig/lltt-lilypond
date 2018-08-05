@@ -8,7 +8,7 @@
 
 verseOne = \relative c {
   \tempo 4 = 120
-  \time 3/4
+  \time 6/8
   a8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
   a,,8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
   \time 4/4
@@ -17,7 +17,7 @@ verseOne = \relative c {
   a8 b'\4 cis4\3 a,8 b'4\4 cis\3 a,8 b'\4 cis4\3 a,8 b'\4 cis\3
   a, c'\4 d\3 r d\3 c\4 a, d'\3 r d\3 c\4 a, d'\3 c\4 a,4
   <b'\4 e\3 fis\2 e\1>4. <d\4 g\3 a\2 e\1>8 ~ <d\4 g\3 a\2 e\1>2 <b\4 e\3 fis\2 e\1>4. <g c d g>8 ~ <g c d g>2
-  d'8 c\3 g\4 d8 ~ d2 a16 (d\5 c4) e,16 (fis g2)
+  d'8 c\3 g\4 d2 a16 (d\5 c4) e,16 (fis g2) r8
   <b'\4 e\3 fis\2 e\1>4. <d\4 g\3 a\2 e\1>8 ~ <d\4 g\3 a\2 e\1>2 <b\4 e\3 fis\2 e\1>4. <g c d g>8 ~ <g c d g>2
   d'8 c\3 g\4 d2 \tuplet 3/2 {a16 (b c} d8\5) e,4 g'\5 fis4\5 r8
   \time 6/4
@@ -26,16 +26,17 @@ verseOne = \relative c {
 }
 
 chorusOne = \relative c {
-  \time 3/4
+  \time 6/8
   a8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
   a,,8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
+  \time 3/4
   a,, b'\4 cis2\3 a,8 g'\4 b2\3
   \time 4/4
   a,8 a'\4 g d'4\3 a,8 a'\4 cis\3 ~ cis1\3
 }
 
 chorusTwo = \relative c {
-  \time 3/4
+  \time 6/8
   a8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
   a,,8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
   \time 6/4
