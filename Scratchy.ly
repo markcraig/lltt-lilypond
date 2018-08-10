@@ -6,8 +6,18 @@
   composer = "LLTT"
 }
 
-verseOne = \relative c {
+chorusOne = \relative c {
   \tempo 4 = 120
+  \time 6/8
+  a8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
+  a,,8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
+  \time 3/4
+  a,, b'\4 cis2\3 a,8 g'\4 b2\3
+  \time 4/4
+  a,8 a'\4 g d'4\3 a,8 a'\4 cis\3 ~ cis1\3
+}
+
+verseOne = \relative c {
   \time 6/8
   a8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
   a,,8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
@@ -23,16 +33,6 @@ verseOne = \relative c {
   \time 6/4
   f, c' g'\4 \glissando a4\4 c\3 g'\2 d'4.
   g,,,8 d'\5 a'\4 \glissando b4\4 d\3 a'\2 e'4.
-}
-
-chorusOne = \relative c {
-  \time 6/8
-  a8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
-  a,,8 d'\4 e\3 a,, d'\4 e\3 a,,8 b'\4 g'\3 a,, b'\4 g'\3
-  \time 3/4
-  a,, b'\4 cis2\3 a,8 g'\4 b2\3
-  \time 4/4
-  a,8 a'\4 g d'4\3 a,8 a'\4 cis\3 ~ cis1\3
 }
 
 chorusTwo = \relative c {
@@ -53,29 +53,46 @@ vampOne = \relative c {
 vampTwo = \relative c {
   \time 7/4
   <c fis>8 <c fis> r <c fis> r <c fis> r <c fis> r <c fis> r <a e'\4 a\3 cis\2>4.
-  r8 <c fis> r <c fis> r <c fis> r <c fis> r <g'\4 c\3 e\2>4.-> <a, e'\4 a\3 cis\2>4
+  <c fis>8 <c fis> r <c fis> r <c fis> r <c fis> r <g'\4 c\3 e\2>4.-> <a, e'\4 a\3 cis\2>4
+}
+
+vampTwoAlt = \relative c {
+  \time 7/4
+  <c'\5 fis\4>8 <c\5 fis\4> r <c\5 fis\4> r <c\5 fis\4> r <c\5 fis\4> r <c\5 fis\4> r <e\4 a\3 cis\2>4.
+  <c\5 fis\4>8 <c\5 fis\4> r <c\5 fis\4> r <c\5 fis\4> r <c\5 fis\4> r <g'\4 c\3 e\2>4.-> <e\4 a\3 cis\2>4
+}
+
+tail = \relative c {
+  \time 3/4
+  a b'\4 cis2\3 a,8 g'\4 b2\3
+  \time 4/4
+  a,8 a'\4 g d'4\3 a,8 a'\4 cis\3 ~ cis2.\fermata\3
 }
 
 \score {
   <<
     \new Staff { 
       \clef "treble_8"
-      \repeat volta 2 { \verseOne }
       \chorusOne
       \verseOne
       \chorusTwo
-      \repeat volta 8 { \vampOne }
+      \repeat volta 4 { \vampOne }
       \chorusTwo
-      \repeat volta 8 { \vampTwo }
+      \repeat volta 2 { \vampTwo }
+      \repeat volta 2 { \vampTwoAlt }
+      \verseOne
+      \tail
     }
     \new TabStaff {
-      \repeat volta 2 { \verseOne }
       \chorusOne
       \verseOne
       \chorusTwo
-      \repeat volta 8 { \vampOne }
+      \repeat volta 4 { \vampOne }
       \chorusTwo
-      \repeat volta 8 { \vampTwo }
+      \repeat volta 2 { \vampTwo }
+      \repeat volta 2 { \vampTwoAlt }
+      \verseOne
+      \tail
     }
   >>
   \layout { }
