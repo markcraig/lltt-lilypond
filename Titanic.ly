@@ -7,7 +7,6 @@
 }
 
 leadIn = \relative c {
-  \tempo 4 = 144
   r2 e,8 fis a4 
 }
 
@@ -84,7 +83,7 @@ tripletsFinB = \relative c {
 }
 
 stolen = \relative c {
-  cis cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
+  cis4 cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
   <cis gis' b e gis> cis <cis gis' b e gis> r dis (e) (dis) b \glissando
   cis4 cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
   <cis gis' b e gis>4. r8 dis (e) (dis) b \glissando
@@ -93,11 +92,38 @@ stolen = \relative c {
   cis4 cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
   <cis gis' b e gis>4. r8 dis (e) (dis) b
   \tuplet 3/2 { a4 e' a } b a8 e 
-  b\3 fis' b\3 fis \tuplet 3/2 { cis'4 b\3 fis }
+  b fis' b\3 fis \tuplet 3/2 { cis'4 b\3 fis }
   <cis gis' b e gis>1~ <cis gis' b e gis>4. r8 dis (e) (dis) b \glissando
 }
 
+stolenVamp = \relative c {
+  <cis gis'\4 cis\3>2.. r8 <b fis' b\3>2.. r8 <a e' a>2.. r8 <b fis' b\3>2.. r8
+  <cis gis'\4 cis\3>2.. r8 <b fis' b\3>2.. r8 <a e' a>2.. r8 <b fis' b\3>2.. r8
+  <cis gis'\4 cis\3>2.. r8 <b fis' b\3>2.. r8 <a e' a>2.. r8 <b fis' b\3>2
+  dis8 (e) (dis) b
+  <a e'>4 <a e'>8 <a e'>8 <a e'>4 <a e'>8 <a e'>8
+  <a e'> (<b fis'>) <b fis'> <b fis'> <b fis'>4 <b fis'>8 <b fis'>
+  <cis gis' b e gis>1~ <cis gis' b e gis>4. r8 dis (e) (dis) b \glissando 
+}
+
+stolenFinal = \relative c {
+  cis4 cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
+  <cis gis' b e gis> cis <cis gis' b e gis> r dis (e) (dis) b \glissando
+  cis4 cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
+  <cis gis' b e gis>4. r8 dis (e) (dis) b \glissando
+  cis4 cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
+  <cis gis' b e gis> cis <cis gis' b e gis> r dis (e) (dis) b \glissando
+  cis4 cis8 cis <cis gis' b e gis>4. <cis gis' b e gis>8~
+  <cis gis' b e gis>4. r8 dis (e) (dis) b
+  \tuplet 3/2 { a4 e' a } b a8 e 
+  b fis' b\3 fis \tuplet 3/2 { cis'4 b\3 fis }
+  <cis gis' b e gis>1~ <cis gis' b e gis>4. r8 e,8 fis a4
+}
+
 \score {
+  \header {
+    piece = "Hope"
+  }
   <<
     \new Staff {
       \clef "treble_8"
@@ -105,31 +131,44 @@ stolen = \relative c {
       \repeat unfold 2 { \dAndA }
       \dAndABis
       \repeat unfold 2 { \cDE }
-      \repeat unfold 2 { \eighths }
-      \repeat unfold 4 { \eighthsG }
-      \repeat unfold 2 { \eighths }
-      \repeat unfold 4 { \eighthsG }
-      \repeat unfold 2 { \indian }
-      \indianUp
-      \indian
-      \repeat unfold 2 { \indian }
-      \indianUp
-      \indianBis
-      \indianTriplets
-      \tripletsFinA
-      \indianTriplets
-      \tripletsFinB
-      \repeat unfold 2 { \stolen }
     }
     \new TabStaff {
       \leadIn
       \repeat unfold 2 { \dAndA }
       \dAndABis
       \repeat unfold 2 { \cDE }
+    }
+  >>
+}
+
+\score {
+  \header {
+    piece = "Stolen"
+  }
+  <<
+    \new Staff {
+      \clef "treble_8"
       \repeat unfold 2 { \eighths }
       \repeat unfold 4 { \eighthsG }
       \repeat unfold 2 { \eighths }
       \repeat unfold 4 { \eighthsG }
+    }
+    \new TabStaff {
+      \repeat unfold 2 { \eighths }
+      \repeat unfold 4 { \eighthsG }
+      \repeat unfold 2 { \eighths }
+      \repeat unfold 4 { \eighthsG }
+    }
+  >>
+}
+
+\score {
+  \header {
+    piece = "Indian"
+  }
+  <<
+    \new Staff {
+      \clef "treble_8"
       \repeat unfold 2 { \indian }
       \indianUp
       \indian
@@ -140,9 +179,56 @@ stolen = \relative c {
       \tripletsFinA
       \indianTriplets
       \tripletsFinB
-      \repeat unfold 2 { \stolen }
+    }
+    \new TabStaff {
+      \repeat unfold 2 { \indian }
+      \indianUp
+      \indian
+      \repeat unfold 2 { \indian }
+      \indianUp
+      \indianBis
+      \indianTriplets
+      \tripletsFinA
+      \indianTriplets
+      \tripletsFinB
     }
   >>
-  \layout { }
-  \midi { }
+}
+
+\score {
+  \header {
+    piece = "Sinking"
+  }
+  <<
+    \new Staff {
+      \clef "treble_8"
+      \repeat unfold 2 { \stolen }
+      \stolenVamp
+      \stolenFinal
+    }
+    \new TabStaff {
+      \repeat unfold 2 { \stolen }
+      \stolenVamp
+      \stolenFinal
+    }
+  >>
+}
+
+\score {
+  \header {
+    piece = "New Hope"
+  }
+  <<
+    \new Staff {
+      \clef "treble_8"
+      \repeat unfold 2 { \dAndA }
+      \dAndABis
+      \repeat unfold 2 { \cDE } \bar "|."
+    }
+    \new TabStaff {
+      \repeat unfold 2 { \dAndA }
+      \dAndABis
+      \repeat unfold 2 { \cDE } \bar "|."
+    }
+  >>
 }
