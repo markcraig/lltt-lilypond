@@ -6,8 +6,8 @@
   composer = "LLTT"
 }
 
-leadIn = \relative c {
-  r2 e,8 fis a4 
+pickups = \relative c {
+  \partial 2 {e,8 fis a4}
 }
 
 dAndA = \relative c {
@@ -127,13 +127,13 @@ stolenFinal = \relative c {
   <<
     \new Staff {
       \clef "treble_8"
-      \leadIn
+      \pickups
       \repeat unfold 2 { \dAndA }
       \dAndABis
       \repeat unfold 2 { \cDE }
     }
     \new TabStaff {
-      \leadIn
+      \pickups
       \repeat unfold 2 { \dAndA }
       \dAndABis
       \repeat unfold 2 { \cDE }
