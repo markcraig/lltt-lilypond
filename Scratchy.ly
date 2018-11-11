@@ -64,9 +64,9 @@ vampTwoAlt = \relative c {
 
 tail = \relative c {
   \time 3/4
-  a b'\4 cis2\3 a,8 g'\4 b2\3
+  a8 b'\4 cis2\3 a,8 g'\4 b2\3
   \time 4/4
-  a,8 a'\4 g d'4\3 a,8 a'\4 cis\3 ~ cis2.\fermata\3
+  a,8 a'\4 g d'4\3 a,8 a'\4 cis\3 ~ cis1\fermata\3
 }
 
 \score {
@@ -81,7 +81,7 @@ tail = \relative c {
       \repeat volta 2 { \vampTwo }
       \repeat volta 2 { \vampTwoAlt }
       \verseOne
-      \tail
+      \tail \bar "|."
     }
     \new TabStaff {
       \chorusOne
@@ -92,7 +92,7 @@ tail = \relative c {
       \repeat volta 2 { \vampTwo }
       \repeat volta 2 { \vampTwoAlt }
       \verseOne
-      \tail
+      \tail \bar "|."
     }
   >>
   \layout { }
