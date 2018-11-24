@@ -35,6 +35,30 @@ interlude = \relative c {
   <d' g b>8 d, d <c' f a> d, d <d a' d fis>4~ <d a' d fis>2. r4s
 }
 
+rumble = \relative c {
+  \tempo 4 = 180
+  d, d8 d ees (d) d ees (d) d d4 r2
+  d4 d8 d ees (d) d f (d) d g (d) d g aes~ aes
+  d,4 d8 d ees (d) d ees (d) d d4 r2
+  d4 d8 d ees (d) d f (d) d g (d) d g aes~ aes
+  <d, a' d>4 <d a' d>8 <d a' d> <ees bes' ees> (<d a' d>) <d a' d> <ees bes' ees>
+  (<d a' d>) <d a' d> <d a' d>4 r2
+  <d a' d>4 <d a' d>8 <d a' d> <ees bes' ees> (<d a' d>) <d a' d> <f c' f>
+  (<d a' d>) <d a' d> <g d'\5 g\4> (<d a' d>) <d a' d> <g d'\5 g\4>
+  <aes\6 ees'\5 aes\4>~ <aes\6 ees'\5 aes\4>
+  <d, a' d>4 <d a' d>8 <d a' d> <ees bes' ees> (<d a' d>) <d a' d> <ees bes' ees>
+  (<d a' d>) <d a' d> <d a' d>4 r2
+  <d a' d>4 <d a' d>8 <d a' d> <ees bes' ees> (<d a' d>) <d a' d> <f c' f>
+  (<d a' d>) <d a' d> <g d'\5 g\4> (<d a' d>) <d a' d> <g d'\5 g\4>
+  <aes\6 ees'\5 aes\4>~ <aes\6 ees'\5 aes\4>
+  d,4 d8 d ees'4\5 d\5~
+  d d,8 d aes'4\6 g\6~
+  g d8 d ees (d) d f (d) d g (d) d g aes~ aes
+  d,4 d8 d ees'4\5 d\5~
+  d d,8 d aes'4\6 g\6~
+  g d8 d ees (d) d ees (d) d d4 r2
+}
+
 \score {
   \header {
     piece = "Melody 1"
@@ -67,6 +91,25 @@ interlude = \relative c {
       stringTunings = #guitar-drop-d-tuning
     } {
       \interlude
+    }
+  >>
+  \layout { }
+  \midi { }
+}
+
+\score {
+  \header {
+    piece = "Rumble"
+  }
+  <<
+    \new Staff {
+      \clef "treble_8"
+      \rumble
+    }
+    \new TabStaff \with {
+      stringTunings = #guitar-drop-d-tuning
+    } {
+      \rumble
     }
   >>
   \layout { }
