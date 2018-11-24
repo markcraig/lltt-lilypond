@@ -21,7 +21,24 @@ melodyOne = \relative c {
   <b e gis>8 (<c f a>) r <c f a> r <b e gis> (<a d fis>4)~ <a d fis>2. r4
 }
 
+interlude = \relative c {
+  d d'8 a dis, g d' f,~ f d' a f dis g d' d,~
+  d4 d'8 a dis, g d' f,~ f d' a f dis g d' d,~
+  d2 <a' d fis>~ <a d fis>4 g8 (a) d a  d,4
+  <d' g b>8 d, d <c' f a> d, d <a' d fis>4 g8 (a) d2 d,4~
+  d2 <a' d fis>~ <a d fis>4 g8 (a) d a  d,4
+  <d' g b>8 d, d <c' f a> d, d <d a' d fis>4~ <d a' d fis>2. <d' fis>8 <d fis>
+  <c, g' d' g>4. <c g' d' g>8 r4 <c g' d' g>~ <c g' d' g>8 <c g' d' g> r4 <c g' d' g>4 <c g' d' g>8 <c g' d' g>
+  <c g' d' g> (<b g' d' g>)~ <b g' d' g> <b g' d' g>~ <b g' d' g> <b g' d' g> <b g' d' g>4~
+  <b g' d' g>4 <b g' d' g>8 <b g' d' g> a (b) d4
+  d,2 <d a' d a' d fis>~ <d a' d a' d fis>4 g'8 (a) d a  d,4
+  <d' g b>8 d, d <c' f a> d, d <d a' d fis>4~ <d a' d fis>2. r4s
+}
+
 \score {
+  \header {
+    piece = "Melody 1"
+  }
   <<
     \new Staff {
       \clef "treble_8"
@@ -31,6 +48,25 @@ melodyOne = \relative c {
       stringTunings = #guitar-drop-d-tuning
     } {
       \melodyOne
+    }
+  >>
+  \layout { }
+  \midi { }
+}
+
+\score {
+  \header {
+    piece = "Interlude"
+  }
+  <<
+    \new Staff {
+      \clef "treble_8"
+      \interlude
+    }
+    \new TabStaff \with {
+      stringTunings = #guitar-drop-d-tuning
+    } {
+      \interlude
     }
   >>
   \layout { }
